@@ -26,3 +26,8 @@ To run the Calculator app using Docker, follow these steps:
     docker-compose up -d  --build
 
 4. The app should be up and running at http://localhost:3000
+5. Test user credentials:
+    ```shell
+    username: test@test.com
+    password: @11aa
+    ```
