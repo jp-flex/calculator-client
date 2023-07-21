@@ -10,9 +10,10 @@ RUN node -v
 
 COPY . .
 
-ENV REACT_APP_SERVER_HOST=http://localhost:3001/truenorth
-
 EXPOSE 3000
 
+ARG REACT_APP_HOST
+
+ENV REACT_APP_HOST $REACT_APP_HOST
 
 CMD [ "npm", "start" ]

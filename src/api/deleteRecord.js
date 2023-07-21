@@ -1,21 +1,9 @@
-export const deleteRecord = (token, id) => {
+import axios from 'axios'
 
-    const url = `${process.env.REACT_APP_SERVER_HOST}/v1/records/${id}`;
-    return new Promise((resolve, reject) => 
-        fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    Authorization: `Bearer ${token}`
-            }})
-            .then(resp => {
-                if (!resp.ok)
-                    reject(resp.status);
-                return resp.json()
-            })
-            .then(() => {
-               resolve();       
-            })
-            .catch(error => {
-                reject(error);
-            }));
+export const deleteRecord = async (token, id) => {
+  const url = `${process.env.REACT_APP_HOST}/v1/records/${id}`
+
+  await axios.delete(url, {
+    headers: { Authorization: `Bearer ${token}` }
+  })
 }

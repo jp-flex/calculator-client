@@ -1,52 +1,54 @@
-import { useState } from 'react';
-import { Input, Button, Alert } from 'antd';
-import 'antd/dist/antd.js';
-import sanitizeHtml from 'sanitize-html';
+import { React, useState } from 'react'
+import PropTypes from 'prop-types'
+import { Input, Button, Alert } from 'antd'
+import 'antd/dist/antd.js'
+import sanitizeHtml from 'sanitize-html'
 
 const Login = ({ handleLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
+    setUsername(e.target.value)
+  }
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   const handleSubmit = (e) => {
-
-    e.preventDefault();
-    handleLoginClick();
-  };
+    e.preventDefault()
+    handleLoginClick()
+  }
 
   const handleLoginClick = async () => {
-    const url = `${process.env.REACT_APP_SERVER_HOST}/v1/auth/login`;
-   
+    const url = `${process.env.REACT_APP_HOST}/v1/auth/login`
+
     fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username: sanitizeHtml(username),
-        password: sanitizeHtml(password),
-      })})
+        password: sanitizeHtml(password)
+      })
+    })
       .then(resp => {
-       return  resp.json()})
+        return resp.json()
+      })
       .then(data => {
         if (!data.error) {
-          handleLogin(data.token);
-          setErrorMessage("");
+          handleLogin(data.token)
+          setErrorMessage('')
         } else {
-          setErrorMessage("Invalid username or password!");
+          setErrorMessage('Invalid username or password!')
         }
       })
       .catch(() => {
-        setErrorMessage("Service Unavailable!");
-      });
+        setErrorMessage('Service Unavailable!')
+      })
   }
 
   return (
@@ -56,7 +58,7 @@ const Login = ({ handleLogin }) => {
         justifyContent: 'center',
         alignItems: 'flex-start',
         height: '100vh',
-        paddingTop: '50px', // Added padding top
+        paddingTop: '50px' // Added padding top
       }}
     >
       <div
@@ -65,7 +67,7 @@ const Login = ({ handleLogin }) => {
           padding: '20px',
           boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
           borderRadius: '4px',
-          backgroundColor: '#fff',
+          backgroundColor: '#fff'
         }}
       >
         <h2 style={{ marginBottom: '20px', textAlign: 'center' }}>Login to Calculator App</h2>
@@ -97,7 +99,11 @@ const Login = ({ handleLogin }) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
+
+Login.propTypes = {
+  handleLogin: PropTypes.func.isRequired
+}
