@@ -8,9 +8,11 @@ https://calculator-client-production.up.railway.app/
 
 ## Features
 - Login
+- Logout
 - Arithmetic operations (addition, subtraction, multiplication, division, square root)
 - Non-arithmetic operations (generate random string)
-- Data Table (ant.design) with filtering, search and ordering. Just click the magnifiying or arrows buttons.
+- Data Table (ant.design) with pagination, paginations size config, filtering, search and ordering. Just click the magnifiying or arrows buttons.
+- Delete Operation Record
 
 ## Prerequisites
 
