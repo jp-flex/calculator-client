@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
       args:
         REACT_APP_HOST: http://localhost:3001
+    container_name: calculator-client
     ports:
       - 3000:3000
       

@@ -58,6 +58,18 @@ To run the Calculator app using Docker, follow these steps:
 3. npm start
 4. The app should be up and running at http://localhost:3000
 
+## Run Tests
+- with docker:
+  ```shell
+   the app conteiner should be running
+   call: docker exec -it calculator-client npm test
+  ```
+- without docker:
+     ```shell
+   npm install
+   npm test
+  ```
+
 ## Tech Debts
 - Create unit test for NewOperation and Records component
     - For some reason it was not possible to mock the operands inputs for ant.design component. Even by Testing Playground it was not possible to find them.
