@@ -23,7 +23,7 @@ const Login = ({ handleLogin }) => {
   }
 
   const handleLoginClick = async () => {
-    const url = `${process.env.REACT_APP_HOST}/v1/auth/login`
+    const url = `${process.env.REACT_APP_HOST}/truenorth/v1/auth/login`
 
     fetch(url, {
       method: 'POST',

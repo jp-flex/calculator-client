@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        REACT_APP_HOST: http://localhost:3001/truenorth
+        REACT_APP_HOST: http://localhost:3001
     ports:
       - 3000:3000
       

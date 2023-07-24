@@ -14,7 +14,7 @@ const buildQueryString = (params) => {
 export const fetchRecordsByPage = async (token, pagination, filter = {}) => {
   const queryString = buildQueryString({ ...pagination, ...filter })
 
-  const url = `${process.env.REACT_APP_HOST}/v1/records?${queryString}`
+  const url = `${process.env.REACT_APP_HOST}/truenorth/v1/records?${queryString}`
 
   const response = await axios.get(url, {
     headers: { Authorization: `Bearer ${token}` }

@@ -1,7 +1,16 @@
 # Calculator App
 
-This is a calculator app built using React and Node.js. 
+This is a calculator app built using React, Node.js and ant.design for the data table impl.
 It allows users to perform arithmetic and non arithmetic operations and view calculation records.
+Remote version of Calculator App UI is deployed at:
+https://calculator-client-production.up.railway.app/
+
+
+## Features
+- Login
+- Arithmetic operations (addition, subtraction, multiplication, division, square root)
+- Non-arithmetic operations (generate random string)
+- Data Table (ant.design) with filtering, search and ordering. Just click the magnifiying or arrows buttons.
 
 ## Prerequisites
 
@@ -9,8 +18,15 @@ It allows users to perform arithmetic and non arithmetic operations and view cal
 - NodeJS (for a faster development feedback maybe you don't want to run the app in a conteiner)
 - Calculator API running (https://github.com/jotapemoraez/calculator-api)
 
+
+## User test credentials for local and remote env
+```shell
+username: test@test.com
+password: @11aa
+```
+
 ## Production Environment
-- 
+- The App is running at https://calculator-client-production.up.railway.app/
 
 ## Getting Started in your local environment
 
@@ -29,8 +45,17 @@ To run the Calculator app using Docker, follow these steps:
     docker-compose up -d  --build
 
 4. The app should be up and running at http://localhost:3000
-5. Test user credentials:
-    ```shell
-    username: test@test.com
-    password: @11aa
-    ```
+
+
+## Getting Started in your local environment without docker
+
+1. Install Node
+2. create env REACT_APP_HOST with http://localhost:3001
+
+2. npm install
+3. npm start
+4. The app should be up and running at http://localhost:3000
+
+## Tech Debts
+- Create unit test for NewOperation and Records component
+    - For some reason it was not possible to mock the operands inputs for ant.design component. Even by Testing Playground it was not possible to find them.
